@@ -1,0 +1,105 @@
+/* index.css — minimalist monochrome */
+:root {
+  --bg:       #f7f6f3;
+  --surface:  #ffffff;
+  --border:   #e2e0db;
+  --text:     #1a1916;
+  --muted:    #8a8880;
+  --subtle:   #c8c6c0;
+  --accent:   #1a1916;
+
+  --playing:   #2a6b3c;
+  --completed: #1a4a8a;
+  --dropped:   #8a2a2a;
+  --wishlist:  #5a3a8a;
+
+  --radius:    6px;
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  padding: 7px 14px;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+button:hover { background: var(--text); color: var(--surface); border-color: var(--text); }
+button:active { opacity: 0.8; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+input, select, textarea {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--text); }
+textarea { resize: vertical; min-height: 72px; }
+select option { background: var(--surface); }
+::placeholder { color: var(--subtle); }
+
+.btn-primary {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
+  font-weight: 500;
+}
+.btn-primary:hover { background: #3a3835; border-color: #3a3835; color: var(--surface); }
+
+.btn-danger {
+  color: var(--dropped);
+  border-color: transparent;
+}
+.btn-danger:hover { background: #fdf0f0; color: var(--dropped); border-color: #f0d0d0; }
+
+/* Status badges — small pill, text-only feel */
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: lowercase;
+}
+.badge.playing   { background: #eaf3ed; color: var(--playing); }
+.badge.completed { background: #e8eef8; color: var(--completed); }
+.badge.dropped   { background: #f8eaea; color: var(--dropped); }
+.badge.wishlist  { background: #f0eaf8; color: var(--wishlist); }
+
+/* Dividers */
+hr { border: none; border-top: 1px solid var(--border); }

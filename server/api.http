@@ -1,0 +1,32 @@
+# server/api.http  —  Install "REST Client" VS Code extension, then click "Send Request"
+# Change @base to your Railway URL once deployed
+
+@base = http://localhost:5000
+
+### Health check
+GET {{base}}/
+
+### Get all games
+GET {{base}}/api/games
+
+### Add a game
+POST {{base}}/api/games
+Content-Type: application/json
+
+{
+  "title": "Dark Souls III",
+  "genre": "Action RPG",
+  "platform": "PC",
+  "status": "playing",
+  "rating": 9,
+  "notes": "Getting there."
+}
+
+### Update a game (change id as needed)
+PUT {{base}}/api/games/1
+Content-Type: application/json
+
+{ "status": "completed", "rating": 10 }
+
+### Delete a game
+DELETE {{base}}/api/games/1
