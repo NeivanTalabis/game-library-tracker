@@ -11,7 +11,7 @@ export default function HomePage() {
 
   useEffect(() => {
     getGames()
-      .then(res => setGames(res.data))
+      .then(res => setGames(Array.isArray(res.data) ? res.data : []))
       .catch(() => setError('Cannot reach the server. Make sure Express is running on port 5000.'))
       .finally(() => setLoading(false));
   }, []);
