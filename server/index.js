@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 // CORS — in production, Railway sets FRONTEND_URL so only your Vercel app can call the API.
 // In development, all origins are allowed for convenience.
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || '*',
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 };
 
